@@ -14,16 +14,28 @@ $( document ).ready( function(){
     $( '#textIn' ).val( '' );
   }); // end buttonHere on click
 
+  //function to loop through cards array
   var displayCards = function(){
     console.log( 'in displayCards' );
-    // loop through cards array
+
+    //for loop for each card in array
     for (var i = 0; i < cards.length; i++) {
-      // for each card
-      // display as list item in ul with id of cardsList (append)
+      // display each card as list item in ul with id of cardsList (append)
       $( '#cardsList' ). append( '<li>' + cards[i] + '</li>' );
     } // end for
   }; // end displayCards
-
   // run on document ready
   displayCards();
+
+  $('#button2').on('click',function(){
+    console.log('on click for buttonCard');
+
+    var cardTextOutput = 'you wanted to see' + $('#textQuestion').val();
+    console.log(cardTextOutput);
+
+    $( '#cardsList' ).append( '<li>' + $('#textQuestion').val() + '</li>' );
+
+    $('#textQuestion').val('');
+
+  });
 }); // end doc ready
